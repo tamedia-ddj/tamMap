@@ -16,6 +16,7 @@ A basic ggplot2 theme to use for map without graticule/grid lines
 }
 \examples{
 require(ggplot2)
+require(tamMap)
 ggplot() + 
   geom_sf(data = tilemap_ch()) + 
   theme_map()

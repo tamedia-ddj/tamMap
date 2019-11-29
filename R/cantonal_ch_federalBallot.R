@@ -4,7 +4,7 @@
 ##'
 ##' Run \code{processFederalBallotByCantons()} to generate a readable csv file for loadCantonsCHFederalBallot
 ##'
-##' @rdname cantonal_ch_federalBallot
+##' @name loadCantonsCHFederalBallot
 ##' @param file the name of the csv file processed by processFederalBallotByCantons to load
 ##' @return a matrix, rownames are cantons (2 letters name) and colnames are federal ballot IDs. Check the attributes ballotName and date
 ##' @export
@@ -63,7 +63,7 @@ loadCantonsCHFederalBallot <- function(file = "federalBallot_cantons.RData") {
 ##' process it and save it as a Rdata file in inst/extdata. 
 ##' Run it when new data are available. 
 ##  Warning of possible break if the OFS changes the data structure of the px file!!
-##' @rdname cantonal_ch_federalBallot
+##' @name processFederalBallotByCantons
 ##' @param url the URL to the px file with all federal ballots
 ##' @param output the output file name to be saved in the package inst/extdata
 ##' @return NULL

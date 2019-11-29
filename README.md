@@ -1,6 +1,6 @@
 # tamMap - ggplot2 and tidy Swiss data centric suite
 
-Suite of convenience functions for geospatial mapping of Swiss data. It integrates geographical data at different levels (municipality, cantons, ...), cities. It also incorporates various muncipality & cantons socio-econmic and voting indicators. Focus is on low levels functions for maximum flexibility
+Suite of convenience functions for geospatial mapping of Swiss data. It integrates geographical data at different levels (municipality, cantons, ...), cities. It also incorporates various municipality & cantons socio-econmic and voting indicators. Focus is on low levels functions for maximum flexibility
 
 It relies on bleeding edge R packages, primarily *sf* and *tidyverse*. 
 

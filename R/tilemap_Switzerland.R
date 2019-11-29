@@ -4,9 +4,10 @@
 ##' 
 ##' @param fortified, a logical a data.frame instead of spatial object to be returned
 ##' @param withLake, a logical have Leman and Bodensee lakes?
+##' @name tilemap_ch
+##' @return a data.frame of class simple feature
 ##' @source \url{https://github.com/ernstbaslerpartner/Switzerland_Tilemap}
 ##' @import sf 
-##' @return a data.frame of class simple feature
 ##' @export
 ##' @examples
 ##' tmap_ch <- tilemap_ch()
@@ -49,4 +50,3 @@ tilemap_ch <- function(fortified = T, withLake = F) {
       Name %in% c('OW', 'NW', 'AI', 'AR', 'BL', 'BS'), 0.5, 
       ifelse(Name %in% c("Lac Léman", "Bodensee"), 0, 1)))
 }
-
