@@ -148,6 +148,51 @@ gp <- ggplot() +
   
   ggiraph( ggobj = gpi, width = 1)
 ```
+
+### Muncipalities with only the productive areas 
+
+![](man/figures/README-productive_municipality.png)
+
+```{r productive area map, echo = FALSE}
+require(tidyverse)
+library(tamMap)
+muni_prod <- shp_path(2019, dirGeo = "CH/productive") %>% 
+  st_read(options = "ENCODING=latin1")
+
+muni_prod %>% 
+  ggplot() +
+  geom_sf(aes(fill = GDENR), lwd = 0) +
+  theme_map() +
+  labs(title = "A silly choroepleth map of BFS muncipality ID, but showing only the productive areas")
+
+```
+
+### Swiss cantonal tilemap
+
+![](man/figures/README-tilemap_canton_CH.png)
+```{r cantonal tilemap, echo = FALSE}
+# load tilemap sf object
+tmap_ch <- tilemap_ch()
+
+# load all federal ballot results
+fballot_canton <- loadCantonsCHFederalBallot() 
+# select only the no Billag ballot
+idx <- which(colnames(fballot_canton) == "5950")
+vote <- fballot_canton[,idx] %>% enframe()
+tmap_ch <- left_join(tmap_ch, vote, by = c("Name" = "name"))
+
+ggplot(tmap_ch) + 
+  geom_sf(data = , aes(fill = value)) +
+  theme_map() +
+  # add canton 2 letters labels
+   geom_sf_text(aes(label = Name), 
+                hjust = 0.5, vjust = 0.5, colour = "white", size = 2.5) +
+   scale_fill_viridis_c(option = "B") +
+   labs(title = paste0("Pourcentage oui au vote du ", attr(fballot_canton, "date")[idx], " sur:\n",
+                       attr(fballot_canton, "ballotName")[idx]))
+
+```
+
 ### Geneva map only with water bodies
 
 ![](man/figures/README-GenevaMapWater-1.png)
